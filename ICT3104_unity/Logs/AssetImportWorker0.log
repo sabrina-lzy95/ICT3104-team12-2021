@@ -1,0 +1,234 @@
+Unity Editor version:    2021.1.21f1 (f2d5d3c59f8c)
+Branch:                  2021.1/staging
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 11.6 (Build 20G165)
+Darwin version:          20.6.0
+Architecture:            x86_64
+Running under Rosetta:   YES
+Available memory:        16384 MB
+Using pre-set license
+Pro License: NO
+Pro License: NO
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2021.1.21f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/tanshengfong/Projects/ICT3104-team12-2021/ICT3104_unity
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+57453
+Successfully changed project path to: /Users/tanshengfong/Projects/ICT3104-team12-2021/ICT3104_unity
+/Users/tanshengfong/Projects/ICT3104-team12-2021/ICT3104_unity
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 119.78 ms, found 3 plugins.
+Preloading 1 native plugins for Editor in 11.41 ms.
+Initialize engine version: 2021.1.21f1 (f2d5d3c59f8c)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2021.1.21f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/tanshengfong/Projects/ICT3104-team12-2021/ICT3104_unity/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+2021-09-22 21:53:12.568 Unity[47139:1719187] (null) preferred device: Apple M1 (high power)
+2021-09-22 21:53:12.568 Unity[47139:1719187] Metal devices available: 1
+2021-09-22 21:53:12.568 Unity[47139:1719187] 0: Apple M1 (high power)
+2021-09-22 21:53:12.569 Unity[47139:1719187] Using device Apple M1 (high power)
+Initializing Metal device caps: Apple M1
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2021.1.21f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2021.1.21f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2021.1.21f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56139
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2021.1.21f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2021.1.21f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002924 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 114.91 ms, found 3 plugins.
+Preloading 1 native plugins for Editor in 0.43 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.742 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2742ms)
+		BeginReloadAssembly (104ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (994ms)
+			LoadAssemblies (103ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (225ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (46ms)
+			SetupLoadedEditorAssemblies (593ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (20ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (115ms)
+				BeforeProcessingInitializeOnLoad (4ms)
+				ProcessInitializeOnLoadAttributes (349ms)
+				ProcessInitializeOnLoadMethodAttributes (103ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.008725 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image /Users/tanshengfong/Projects/ICT3104-team12-2021/ICT3104_unity/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/DotNetZip/Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image /Users/tanshengfong/Projects/ICT3104-team12-2021/ICT3104_unity/Library/PackageCache/com.unity.visualscripting@1.6.1/Editor/VisualScripting.Core/Dependencies/YamlDotNet/Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.77 ms, found 3 plugins.
+Preloading 1 native plugins for Editor in 0.43 ms.
+Microsoft has transitioned support of Windows MR devices to OpenXR in Unity 2021, and recommends using Unity's OpenXR plugin. As such, this Windows XR plugin is marked as deprecated and will be removed in the 2021.2 release. It will continue to be supported in the 2020 LTS.
+UnityEngine.StackTraceUtility:ExtractStackTrace () (at /Users/bokken/buildslave/unity/build/Runtime/Export/Scripting/StackTrace.cs:37)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+UnityEditor.XR.WindowsMR.XRPackage:.cctor () (at Library/PackageCache/com.unity.xr.windowsmr@5.3.0/Editor/WindowsMRPackageMetadata.cs:27)
+System.Reflection.MonoCMethod:InternalInvoke (object,object[])
+System.RuntimeType:CreateInstanceMono (bool)
+System.RuntimeType:CreateInstanceSlow (bool,bool,bool,System.Threading.StackCrawlMark&)
+System.RuntimeType:CreateInstanceDefaultCtor (bool,bool,bool,System.Threading.StackCrawlMark&)
+System.Activator:CreateInstance (System.Type,bool)
+System.Activator:CreateInstance (System.Type)
+UnityEditor.XR.Management.XRPackageInitializationBootstrap:BeginPackageInitialization () (at Library/PackageCache/com.unity.xr.management@4.1.0/Editor/XRPackageInitialization.cs:81)
+UnityEditor.XR.Management.XRPackageInitializationBootstrap:.cctor () (at Library/PackageCache/com.unity.xr.management@4.1.0/Editor/XRPackageInitialization.cs:50)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[]) (at /Users/bokken/buildslave/unity/build/Editor/Mono/EditorAssemblies.cs:134)
+
+(Filename: Library/PackageCache/com.unity.xr.windowsmr@5.3.0/Editor/WindowsMRPackageMetadata.cs Line: 27)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.414 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2415ms)
+		BeginReloadAssembly (266ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (30ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (45ms)
+		EndReloadAssembly (2043ms)
+			LoadAssemblies (167ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (456ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (66ms)
+			SetupLoadedEditorAssemblies (1086ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (15ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (119ms)
+				ProcessInitializeOnLoadAttributes (934ms)
+				ProcessInitializeOnLoadMethodAttributes (14ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (35ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2021.1.21f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
+Preloading 1 native plugins for Editor in 0.39 ms.
+Unloading 3416 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 232.8 MB.
+System memory in use after: 233.0 MB.
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 3861.
+Total: 2.576250 ms (FindLiveObjects: 0.166584 ms CreateObjectMapping: 0.078791 ms MarkObjects: 2.262667 ms  DeleteObjects: 0.066291 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Scenes
+  artifactKey: Guid(0cc1b79de78bc4991892d4d342d7211a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes using Guid(0cc1b79de78bc4991892d4d342d7211a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89743c6f43ae1e16026a46bfd67e3c4c') in 0.007147 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000245 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6749db738e8fd41afd0a9771b93e11c8') in 0.013489 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 181.898637 seconds.
+  path: Assets/Scenes/1. Controlled.unity
+  artifactKey: Guid(68c40cd54c3e747d28fe12dfd994a673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/1. Controlled.unity using Guid(68c40cd54c3e747d28fe12dfd994a673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0af1f4f078a8a0e9183a113a98632b49') in 0.002802 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 112.927965 seconds.
+  path: Assets/Scenes/1. Controlled, pedestrian crossing - St.unity
+  artifactKey: Guid(68c40cd54c3e747d28fe12dfd994a673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/1. Controlled, pedestrian crossing - St.unity using Guid(68c40cd54c3e747d28fe12dfd994a673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '379ee1c288b645e401f0046d3e0c04e3') in 0.002634 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 77.633273 seconds.
+  path: Assets/Scenes/Scene 1.unity
+  artifactKey: Guid(68c40cd54c3e747d28fe12dfd994a673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scene 1.unity using Guid(68c40cd54c3e747d28fe12dfd994a673) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49f5ad231ff70b4f480bf63050e5b07c') in 0.001838 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 27.724614 seconds.
+  path: Assets/Scenes/Scene 2.unity
+  artifactKey: Guid(491cce6d624c3480eb03baebc9151b32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scene 2.unity using Guid(491cce6d624c3480eb03baebc9151b32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '335be79675699a49dd3830ff9ebe2144') in 0.002186 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.654552 seconds.
+  path: Assets/Scenes/Scene 3.unity
+  artifactKey: Guid(2bfef72538c03433ab556df785c3504f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scene 3.unity using Guid(2bfef72538c03433ab556df785c3504f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d8aafd250c3c528370494294a18d6cc') in 0.002257 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 8.565911 seconds.
+  path: Assets/Scenes/Scene 4.unity
+  artifactKey: Guid(90ca15d56c6c1463c831d88151fb2a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scene 4.unity using Guid(90ca15d56c6c1463c831d88151fb2a56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56d99c1b1364a4464af7650fe150a7c6') in 0.002405 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.834186 seconds.
+  path: Assets/Scenes/New SceneTemplate.scenetemplate
+  artifactKey: Guid(1be72e9af42174d5dbce9e60e5cc418d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/New SceneTemplate.scenetemplate using Guid(1be72e9af42174d5dbce9e60e5cc418d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ecbd99db9a20486d2ad25644247dcec') in 0.521270 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 21.843661 seconds.
+  path: Assets/Scenes/Scene 5.unity
+  artifactKey: Guid(1611552006dad4df69b0d3079575e6e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scene 5.unity using Guid(1611552006dad4df69b0d3079575e6e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ee8b1534cccea2f060003425d8e8575') in 0.002513 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 12.002850 seconds.
+  path: Assets/Scenes/Scene 6.unity
+  artifactKey: Guid(188b98f0dbf9a41b487a2369fc4a7963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scene 6.unity using Guid(188b98f0dbf9a41b487a2369fc4a7963) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cb5e2658afece6557ee4e0e0c1e7057') in 0.002276 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.657937 seconds.
+  path: Assets/Scenes/Scene 7.unity
+  artifactKey: Guid(58bef305f721d4d1db709045f3bd57c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scene 7.unity using Guid(58bef305f721d4d1db709045f3bd57c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47c71a703c9a400b7df83f511f74fe6e') in 0.002265 seconds 
