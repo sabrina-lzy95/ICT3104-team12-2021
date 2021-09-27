@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarController1 : MonoBehaviour
+public class AutoCarControllerSab : MonoBehaviour
 {
     private Vector3 startPosition, startRotation;
 
