@@ -20,11 +20,14 @@ public class PlayerMovement : MonoBehaviour
 
     //References
     private CharacterController controller;
+    private Animator anim;
 
     //Whenever game starts
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponentInChildren<Animator>();
+
     }
 
     private void Update()
@@ -38,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
 
         //Check if gorunded
-        if (isGrounded  && velocity.y < 0)
+        if (isGrounded && velocity.y < 0)
         {
             //Stopp applying gravity
             velocity.y = -2f;
@@ -49,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
 
         //Makes moving foward change to players foward. Not global foward
         moveDirection = transform.TransformDirection(moveDirection);
-        
+
         if (isGrounded)
         {
             //Vector3.zero 0,0,0
@@ -73,14 +76,14 @@ public class PlayerMovement : MonoBehaviour
 
             moveDirection *= moveSpeed;
 
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
                 Debug.Log("Jmup");
             }
 
         }
-   
+
 
         //Time.deltaTime ignore frames
         controller.Move(moveDirection * Time.deltaTime);
@@ -95,16 +98,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void Idle()
     {
-
+        anim.SetFloat("Speed", 0, 0.1f, Time.deltaTime);
     }
 
     private void Walk()
     {
         moveSpeed = walkSpeed;
+        anim.SetFloat("Speed", 0.5f, 0.1f, Time.deltaTime);
     }
     private void Run()
     {
         moveSpeed = runSpeed;
+        anim.SetFloat("Speed", 1, 0.1f, Time.deltaTime);
     }
 
 
