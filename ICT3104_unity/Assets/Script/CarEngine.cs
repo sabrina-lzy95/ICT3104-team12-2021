@@ -91,7 +91,7 @@ public class CarEngine : MonoBehaviour
 
     private void CheckWaypointDistance()
     {
-        if(Vector3.Distance(transform.position, nodes[currentNode].position) < 0.5f)
+        if(Vector3.Distance(transform.position, nodes[currentNode].position) < 0.9f)
         {
             if(currentNode == nodes.Count - 1)
             {
