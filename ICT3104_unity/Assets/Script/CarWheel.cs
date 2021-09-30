@@ -9,7 +9,7 @@ public class CarWheel : MonoBehaviour
     private Quaternion wheelRotation = new Quaternion();
 
 
-    // Update is called once per frame
+    
     void Update()
     {
         targetWheel.GetWorldPose(out wheelPosition, out wheelRotation);

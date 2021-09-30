@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CarEngine : MonoBehaviour
 {
-    //Drag path parent 
     public Transform path;
     public float maxSteerAngle = 45f;
     public WheelCollider wheelFL;
@@ -14,12 +13,9 @@ public class CarEngine : MonoBehaviour
     public float maxSpeed = 100f;
     public Vector3 centerOfMass;
 
-    /*[Header("Sensors")]
-    public float sensorLength = 5f;
-    public float frontSensorPosition = 0.5f;*/
-
     //Store all the nodes of the path
     private List<Transform> nodes;
+    //Keep track of our current node
     private int currentNode = 0;
 
     void Start()
@@ -46,38 +42,28 @@ public class CarEngine : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Sensors();
         ApplySteer();
         Drive();
         CheckWaypointDistance();
     }
 
-    /*private void Sensors()
-    {
-        RaycastHit hit;
-        Vector3 sensorStartPos = transform.position;
-        sensorStartPos.z += frontSensorPosition;
-
-        if (Physics.Raycast(sensorStartPos, transform.forward, out hit, sensorLength))
-        {
-
-        }
-        Debug.DrawLine(sensorStartPos, hit.point);
-    }*/
-
+    //Calculation for the wheel turning the right direction depending on where the next waypoint.
     private void ApplySteer()
     {
         Vector3 relativeVector = transform.InverseTransformPoint(nodes[currentNode].position);
+        //Magnitude is the length of the vector 
         float newSteer = (relativeVector.x / relativeVector.magnitude) * maxSteerAngle;
         wheelFL.steerAngle = newSteer;
         wheelFR.steerAngle = newSteer;
     }
 
+    //Calculation for autonomous driving towards the waypoint
     private void Drive()
     {
         currentSpeed = 2 * Mathf.PI * wheelFL.radius * wheelFL.rpm * 60 / 1000;
         if (currentSpeed < maxSpeed)
         {
+            //motorTorque is for the engine of the car wheels
             wheelFL.motorTorque = maxMotorTorque;
             wheelFR.motorTorque = maxMotorTorque;
         }
@@ -89,14 +75,19 @@ public class CarEngine : MonoBehaviour
         
     }
 
+    //Calculate the distance towards the node and if is very close to the node it will go to the next one.
+    //Therefore increase the current node. 
     private void CheckWaypointDistance()
     {
+        //if the distance to the way point is smaller than a number, we will go to set the current node to the next node
         if(Vector3.Distance(transform.position, nodes[currentNode].position) < 0.9f)
         {
+            //if it is the last node, will set the current node to zero
             if(currentNode == nodes.Count - 1)
             {
                 currentNode = 0;
             }
+            //if it is not the last one, will increase the current node
             else
             {
                 currentNode++;
