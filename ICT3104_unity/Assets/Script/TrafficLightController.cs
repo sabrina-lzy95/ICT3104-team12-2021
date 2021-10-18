@@ -48,7 +48,7 @@ public class TrafficLightController : MonoBehaviour
                 else if (LightState == state.red || LightState == state.green)
                 {
                     //LightCount = Random.Range(20, 50);
-                    LightCount = Random.Range(05, 10);
+                    LightCount = 10;
                 }
             }
         }
