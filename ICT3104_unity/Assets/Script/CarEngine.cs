@@ -17,6 +17,8 @@ public class CarEngine : MonoBehaviour
     private List<Transform> nodes;
     //Keep track of our current node
     private int currentNode = 0;
+    // tell the car to apply brakes
+    public bool stop = false;
 
     void Start()
     {
@@ -43,7 +45,16 @@ public class CarEngine : MonoBehaviour
     private void FixedUpdate()
     {
         ApplySteer();
-        Drive();
+
+        if (stop == false)
+        {
+            Drive();
+        }
+        else
+        {
+            Brake();
+        }
+
         CheckWaypointDistance();
     }
 
@@ -75,6 +86,17 @@ public class CarEngine : MonoBehaviour
         
     }
 
+    private void Brake()
+    {
+        // Cut engine power
+        wheelFL.motorTorque = 0;
+        wheelFR.motorTorque = 0;
+
+        // Apply brakes
+        wheelFL.brakeTorque = 300;
+        wheelFR.brakeTorque = 300;
+    }
+
     //Calculate the distance towards the node and if is very close to the node it will go to the next one.
     //Therefore increase the current node. 
     private void CheckWaypointDistance()
@@ -85,7 +107,8 @@ public class CarEngine : MonoBehaviour
             //if it is the last node, will set the current node to zero
             if(currentNode == nodes.Count - 1)
             {
-                currentNode = 0;
+                //currentNode = 0;
+                stop = true;
             }
             //if it is not the last one, will increase the current node
             else
