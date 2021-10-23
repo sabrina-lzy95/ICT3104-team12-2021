@@ -8,15 +8,10 @@ public class CarEngine : MonoBehaviour
     public float maxSteerAngle = 45f;
     public WheelCollider wheelFL;
     public WheelCollider wheelFR;
-    public WheelCollider wheelRL;
-    public WheelCollider wheelRR;
-    public float maxBrakeTorque = 1000f;
     public float maxMotorTorque = 80f;
     public float currentSpeed;
     public float maxSpeed = 100f;
     public Vector3 centerOfMass;
-    public bool isSlowDown = false;
-    public bool isBraking = false;
 
     //Store all the nodes of the path
     private List<Transform> nodes;
@@ -49,8 +44,6 @@ public class CarEngine : MonoBehaviour
     {
         ApplySteer();
         Drive();
-        //SlowDown();
-        Braking();
         CheckWaypointDistance();
     }
 
@@ -68,60 +61,18 @@ public class CarEngine : MonoBehaviour
     private void Drive()
     {
         currentSpeed = 2 * Mathf.PI * wheelFL.radius * wheelFL.rpm * 60 / 1000;
-        if (currentSpeed < maxSpeed && !isBraking)
+        if (currentSpeed < maxSpeed)
         {
             //motorTorque is for the engine of the car wheels
             wheelFL.motorTorque = maxMotorTorque;
             wheelFR.motorTorque = maxMotorTorque;
-            wheelRL.motorTorque = maxMotorTorque;
-            wheelRR.motorTorque = maxMotorTorque;
         }
         else
         {
             wheelFL.motorTorque = 0;
             wheelFR.motorTorque = 0;
-            wheelRL.motorTorque = 0;
-            wheelRR.motorTorque = 0;
         }
         
-    }
-
-    // Apply brakes if the car is over a certain speed
-    private void SlowDown()
-    {
-        if (isSlowDown)
-        {
-            if (currentSpeed > 20)
-            {
-                isBraking = true;
-            }
-            else
-            {
-                isBraking = false;
-            }
-        }
-        else
-        {
-            isBraking = false;
-        }
-    }
-
-    private void Braking()
-    {
-        if (isBraking)
-        {
-            wheelFL.brakeTorque = maxBrakeTorque;
-            wheelFR.brakeTorque = maxBrakeTorque;
-            wheelRL.brakeTorque = maxBrakeTorque;
-            wheelRR.brakeTorque = maxBrakeTorque;
-        } 
-        else
-        {
-            wheelFL.brakeTorque = 0;
-            wheelFR.brakeTorque = 0;
-            wheelRL.brakeTorque = 0;
-            wheelRR.brakeTorque = 0;
-        }
     }
 
     //Calculate the distance towards the node and if is very close to the node it will go to the next one.
@@ -132,9 +83,9 @@ public class CarEngine : MonoBehaviour
         if(Vector3.Distance(transform.position, nodes[currentNode].position) < 0.9f)
         {
             //if it is the last node, will set the current node to zero
-            if (currentNode == nodes.Count - 1)
+            if(currentNode == nodes.Count - 1)
             {
-                //currentNode = 0;
+                currentNode = 0;
             }
             //if it is not the last one, will increase the current node
             else
