@@ -7,6 +7,8 @@ public class TrafficLightController : MonoBehaviour
     public Light greenLight;
     public Light yellowLight;
     public Light redLight;
+    public Light greenMenLight;
+    public Light redMenLight;
     //Instead of make 3 light count. Just make only one.
     public float LightCount;
     public enum state
@@ -26,8 +28,10 @@ public class TrafficLightController : MonoBehaviour
             redLight.enabled = LightState == state.red;
             yellowLight.enabled = LightState == state.yellow || LightState == state.yellow2;
             greenLight.enabled = LightState == state.green;
+            //greenMenLight.enabled = menLightState == menState.green;
+            //redMenLight.enabled = menLightState == menState.red;
             //This is a shorter version of 
-           
+
             //This is what we do. When light count to 0
             if (LightCount <= 0)
             {
@@ -43,12 +47,22 @@ public class TrafficLightController : MonoBehaviour
                 if (LightState == state.yellow2)
                 {
                     LightCount = 2;
+                    greenMenLight.enabled = false;
+                    redMenLight.enabled = true;
                 }
                 //If we at red or green light? Give random number between 20 - 50 seconds
-                else if (LightState == state.red || LightState == state.green)
+                else if (LightState == state.green)
                 {
                     //LightCount = Random.Range(20, 50);
                     LightCount = 10;
+                    greenMenLight.enabled = false;
+                    redMenLight.enabled = true;
+                }
+                else if (LightState == state.red)
+                {
+                    LightCount = 10;
+                    greenMenLight.enabled = true;
+                    redMenLight.enabled = false;
                 }
             }
         }
