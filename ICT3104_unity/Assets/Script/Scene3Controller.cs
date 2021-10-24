@@ -29,6 +29,10 @@ public class Scene3Controller : MonoBehaviour
             case "t":
                 TriggerTrafficLight();
                 break;
+			case "y":
+				Debug.Log("toggle day/night");
+				TriggerDayNight();
+				break;
         }
     }
 
@@ -54,4 +58,25 @@ public class Scene3Controller : MonoBehaviour
             trafficLight2Script.isTrigger = true;
         }
     }
+	private void TriggerDayNight()
+	{
+		
+		GameObject lightObject = GameObject.Find("Directional Light (1)");
+		var light = lightObject.GetComponent<Light>();
+		var _materialOne    = Resources.Load<Material>( "Assets/script/night.mat" );
+		var _materialTwo    = Resources.Load<Material>( "Assets/ExampleAssets/Materials/Skybox Light.mat" );
+		
+		//Material nightMat = new Material(Application.dataPath + "/Assets/script"+ "Night" +".mat");
+		if(light.enabled){
+		//	RenderSettings.skybox = _materialTwo;
+			light.enabled =false;
+		}
+		else{
+		
+			Debug.Log("Here");
+		//	RenderSettings.skybox = _materialOne;
+			light.enabled = true;
+		}
+
+	}
 }
