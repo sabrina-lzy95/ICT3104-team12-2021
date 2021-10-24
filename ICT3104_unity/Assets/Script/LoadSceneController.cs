@@ -14,46 +14,34 @@ public class LoadSceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Press the numpad 1-7 key to start coroutine
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        var pressedKey = Input.inputString;
+
+        switch (pressedKey)
         {
-            // Use a coroutine to load the Scene in the background
-            StartCoroutine(LoadWelcomeScene());
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            // Use a coroutine to load the Scene in the background
-            StartCoroutine(LoadYourAsyncScene("1"));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            // Use a coroutine to load the Scene in the background
-            StartCoroutine(LoadYourAsyncScene("2"));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            // Use a coroutine to load the Scene in the background
-            StartCoroutine(LoadYourAsyncScene("3"));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            // Use a coroutine to load the Scene in the background
-            StartCoroutine(LoadYourAsyncScene("4"));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            // Use a coroutine to load the Scene in the background
-            StartCoroutine(LoadYourAsyncScene("5"));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            // Use a coroutine to load the Scene in the background
-            StartCoroutine(LoadYourAsyncScene("6"));
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            // Use a coroutine to load the Scene in the background
-            StartCoroutine(LoadYourAsyncScene("7"));
+            case "0":
+                StartCoroutine(LoadWelcomeScene());
+                break;
+            case "1":
+                StartCoroutine(LoadYourAsyncScene("1"));
+                break;
+            case "2":
+                StartCoroutine(LoadYourAsyncScene("2"));
+                break;
+            case "3":
+                StartCoroutine(LoadYourAsyncScene("3"));
+                break;
+            case "4":
+                StartCoroutine(LoadYourAsyncScene("4"));
+                break;
+            case "5":
+                StartCoroutine(LoadYourAsyncScene("5"));
+                break;
+            case "6":
+                StartCoroutine(LoadYourAsyncScene("6"));
+                break;
+            case "7":
+                StartCoroutine(LoadYourAsyncScene("7"));
+                break;
         }
     }
 

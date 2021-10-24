@@ -6,6 +6,9 @@ public class Scene3Controller : MonoBehaviour
 {
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
     public GameObject normalCar;
+    public GameObject trafficLight1;
+    public GameObject trafficLight2;
+    public GameObject spawnZone;
 
     // Start is called before the first frame update
     void Start()
@@ -16,15 +19,39 @@ public class Scene3Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Minus))
+        var pressedKey = Input.inputString;
+
+        switch (pressedKey)
         {
-            spawnNormalCar();
+            case "-":
+                SpawnNormalCar();
+                break;
+            case "t":
+                TriggerTrafficLight();
+                break;
         }
     }
 
-    private void spawnNormalCar()
+    private void SpawnNormalCar()
     {
-        // Instantiate at position (0, 0, 0) and zero rotation.
-        Instantiate(normalCar, new Vector3(19, 0, -55), Quaternion.Euler(0, 270, 0));
+        SpawnZoneScript spawnZoneScript = spawnZone.GetComponent<SpawnZoneScript>(); // retrieves the script instance of spawn zone
+
+        if (!spawnZoneScript.haveObjectInSpawnZone)
+        {
+            // Clone normal car at specified position and rotation.
+            Instantiate(normalCar, new Vector3(19, 0, -55), Quaternion.Euler(0, 270, 0));
+        }
+    }
+
+    private void TriggerTrafficLight()
+    {
+        TrafficLightController trafficLight1Script = trafficLight1.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight1
+        TrafficLightController trafficLight2Script = trafficLight2.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight2
+
+        if (!trafficLight1Script.isTrigger && !trafficLight2Script.isTrigger)
+        {
+            trafficLight1Script.isTrigger = true;
+            trafficLight2Script.isTrigger = true;
+        }
     }
 }
