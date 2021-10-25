@@ -6,6 +6,7 @@ public class Scene3Controller : MonoBehaviour
 {
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
     public GameObject normalCar;
+    public GameObject autoCar;
     public GameObject trafficLight1;
     public GameObject trafficLight2;
     public GameObject spawnZone;
@@ -24,7 +25,10 @@ public class Scene3Controller : MonoBehaviour
         switch (pressedKey)
         {
             case "-":
-                SpawnNormalCar();
+                SpawnCar("Normal");
+                break;
+            case "=":
+                SpawnCar("Auto");
                 break;
             case "t":
                 TriggerTrafficLight();
@@ -36,14 +40,22 @@ public class Scene3Controller : MonoBehaviour
         }
     }
 
-    private void SpawnNormalCar()
+    private void SpawnCar(string carType)
     {
         SpawnZoneScript spawnZoneScript = spawnZone.GetComponent<SpawnZoneScript>(); // retrieves the script instance of spawn zone
 
         if (!spawnZoneScript.haveObjectInSpawnZone)
         {
-            // Clone normal car at specified position and rotation.
-            Instantiate(normalCar, new Vector3(19, 0, -55), Quaternion.Euler(0, 270, 0));
+            if (carType == "Normal")
+            {
+                // Clone normal car at specified position and rotation.
+                Instantiate(normalCar, new Vector3(19, 0, -55), Quaternion.Euler(0, 270, 0));
+            }
+            else if (carType == "Auto")
+            {
+                // Clone auto car at specified position and rotation.
+                Instantiate(autoCar, new Vector3(19, 0, -55), Quaternion.Euler(0, 270, 0));
+            }
         }
     }
 
