@@ -64,7 +64,7 @@ public class TrafficLightController : MonoBehaviour
                     }
                     else if (LightState == state.red)
                     {
-                        LightCount = 10;
+                        LightCount = 25;
                         greenMenLight.enabled = true;
                         redMenLight.enabled = false;
                     }
