@@ -75,19 +75,22 @@ public class Scene3Controller : MonoBehaviour
 		
 		GameObject lightObject = GameObject.Find("Directional Light (1)");
 		var light = lightObject.GetComponent<Light>();
-		var _materialOne    = Resources.Load<Material>( "Assets/script/night.mat" );
-		var _materialTwo    = Resources.Load<Material>( "Assets/ExampleAssets/Materials/Skybox Light.mat" );
+		var _materialOne    = Resources.Load<Material>( "night" );
+		var _materialTwo    = Resources.Load<Material>( "Skybox Light" );
+	
 		
 		//Material nightMat = new Material(Application.dataPath + "/Assets/script"+ "Night" +".mat");
 		if(light.enabled){
-		//	RenderSettings.skybox = _materialTwo;
+			RenderSettings.skybox = _materialOne;
 			light.enabled =false;
+			DynamicGI.UpdateEnvironment ();
+
 		}
 		else{
 		
-			Debug.Log("Here");
-		//	RenderSettings.skybox = _materialOne;
+			RenderSettings.skybox = _materialTwo;
 			light.enabled = true;
+			DynamicGI.UpdateEnvironment ();
 		}
 
 	}
