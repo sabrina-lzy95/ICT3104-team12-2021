@@ -1,3 +1,4 @@
+using DigitalRuby.RainMaker;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class Scene3Controller : MonoBehaviour
     public GameObject trafficLight1;
     public GameObject trafficLight2;
     public GameObject spawnZone;
+    public GameObject RainPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,9 @@ public class Scene3Controller : MonoBehaviour
 
         switch (pressedKey)
         {
+            case "r":
+                TriggerRain();
+                break;
             case "-":
                 SpawnCar("Normal");
                 break;
@@ -94,4 +99,21 @@ public class Scene3Controller : MonoBehaviour
 		}
 
 	}
+
+    private void TriggerRain()
+    {
+     
+        RainScript rain = RainPrefab.GetComponent<RainScript>();
+
+        if (rain.RainIntensity == 0)
+        {
+            rain.RainIntensity = 1;
+        }
+        else
+        {
+            rain.RainIntensity = 0;
+        }
+
+    }
+
 }
