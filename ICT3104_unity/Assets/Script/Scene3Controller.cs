@@ -6,11 +6,14 @@ using UnityEngine;
 public class Scene3Controller : MonoBehaviour
 {
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
+    public Transform path1;
+    public Transform path2;
     public GameObject normalCar;
     public GameObject autoCar;
     public GameObject trafficLight1;
     public GameObject trafficLight2;
-    public GameObject spawnZone;
+    public GameObject spawnZone1;
+    public GameObject spawnZone2;
     public GameObject RainPrefab;
 
     // Start is called before the first frame update
@@ -47,20 +50,34 @@ public class Scene3Controller : MonoBehaviour
 
     private void SpawnCar(string carType)
     {
-        SpawnZoneScript spawnZoneScript = spawnZone.GetComponent<SpawnZoneScript>(); // retrieves the script instance of spawn zone
+        SpawnZoneScript spawnZoneScript1 = spawnZone1.GetComponent<SpawnZoneScript>(); // retrieves the script instance of spawn zone 1
+        SpawnZoneScript spawnZoneScript2 = spawnZone2.GetComponent<SpawnZoneScript>(); // retrieves the script instance of spawn zone 2
 
-        if (!spawnZoneScript.haveObjectInSpawnZone)
+        GameObject targetCar = null;
+
+        if (carType == "Normal")
         {
-            if (carType == "Normal")
-            {
-                // Clone normal car at specified position and rotation.
-                Instantiate(normalCar, new Vector3(19, 0, -55), Quaternion.Euler(0, 270, 0));
-            }
-            else if (carType == "Auto")
-            {
-                // Clone auto car at specified position and rotation.
-                Instantiate(autoCar, new Vector3(19, 0, -55), Quaternion.Euler(0, 270, 0));
-            }
+            targetCar = normalCar;
+        }
+        else if (carType == "Auto")
+        {
+            targetCar = autoCar;
+        }
+
+        // spawn car in spawn zone 1 if there are no objects in the spawn zone
+        if (!spawnZoneScript1.haveObjectInSpawnZone)
+        {
+            GameObject clonedCar = Instantiate(targetCar, new Vector3(19, 0, -55), Quaternion.Euler(0, 270, 0)); // Clone normal car at specified position and rotation.
+            CarEngine clonedCarScript = clonedCar.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the clone
+            clonedCarScript.path = path1; // assign path to cloned car
+        }
+
+        // spawn car in spawn zone 2 if there are no objects in the spawn zone
+        if (!spawnZoneScript2.haveObjectInSpawnZone)
+        {
+            GameObject clonedCar = Instantiate(targetCar, new Vector3(-50, 0, 40), Quaternion.Euler(0, 90, 0)); // Clone normal car at specified position and rotation.
+            CarEngine clonedCarScript = clonedCar.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the clone
+            clonedCarScript.path = path2; // assign path to cloned car
         }
     }
 
