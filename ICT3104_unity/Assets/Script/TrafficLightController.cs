@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class TrafficLightController : MonoBehaviour
 {
+    public AudioSource audio1;
+    public AudioSource audio2;
+    public AudioSource audio3;
     public Light greenLight;
     public Light yellowLight;
     public Light redLight;
     public Light greenMenLight;
     public Light redMenLight;
+    public bool playSound = true;
     //Instead of make 3 light count. Just make only one.
     public float LightCount;
     public bool isTrigger;
+
     public enum state
     {
         red = 0, yellow = 1, green = 2, yellow2 = 3
@@ -20,6 +25,7 @@ public class TrafficLightController : MonoBehaviour
     //Light state. Default yellow.
     public bool emergency;
     //In case of emergency. Toggle.
+
 
     void Update()
     {
@@ -43,6 +49,7 @@ public class TrafficLightController : MonoBehaviour
                     if ((int)LightState > 3)
                     {
                         LightState = 0;
+                        
                     }
                     //After we add LightState up. We start counting again. If we at yellow light? Give it 2 Seconds.
                     //if (LightState == state.yellow || LightState == state.yellow2)
@@ -51,6 +58,7 @@ public class TrafficLightController : MonoBehaviour
                         LightCount = 2;
                         greenMenLight.enabled = false;
                         redMenLight.enabled = true;
+                        
                     }
                     //If we at red or green light? Give random number between 20 - 50 seconds
                     else if (LightState == state.green)
@@ -61,12 +69,19 @@ public class TrafficLightController : MonoBehaviour
                         //redMenLight.enabled = true;
                         isTrigger = false;
                         LightCount = 0;
+                        
                     }
                     else if (LightState == state.red)
                     {
                         LightCount = 25;
                         greenMenLight.enabled = true;
                         redMenLight.enabled = false;
+                        if (!audio2.isPlaying)
+                        {
+                            audio1.Stop();
+                            audio2.loop = true;
+                            audio2.Play();
+                        }
                     }
                 }
             }
@@ -75,6 +90,13 @@ public class TrafficLightController : MonoBehaviour
                 LightState = state.green;
                 greenMenLight.enabled = false;
                 redMenLight.enabled = true;
+                if (!audio1.isPlaying)
+                {
+                    audio2.Stop();
+                    audio1.loop = true;
+                    audio1.Play();
+                }
+
             }
         }
         else //Do this if emergency.
@@ -83,6 +105,7 @@ public class TrafficLightController : MonoBehaviour
             yellowLight.enabled = false;
             redLight.enabled = false;
         }
+
     }
      
      void OnTriggerEnter()
