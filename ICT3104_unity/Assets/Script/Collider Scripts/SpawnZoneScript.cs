@@ -20,12 +20,18 @@ public class SpawnZoneScript : MonoBehaviour
     // When other objects is within the zone
     private void OnTriggerStay(Collider other)
     {
-        haveObjectInSpawnZone = true;
+        if (other.gameObject.tag == "Car" || other.gameObject.tag == "Player") // Checks if the object that entered the collider is a car
+        {
+            haveObjectInSpawnZone = true;
+        }
     }
 
     // When other objects leave the zone
     private void OnTriggerExit(Collider other)
     {
-        haveObjectInSpawnZone = false;
+        if (other.gameObject.tag == "Car" || other.gameObject.tag == "Player") // Checks if the object that entered the collider is a car
+        {
+            haveObjectInSpawnZone = false;
+        }
     }
 }

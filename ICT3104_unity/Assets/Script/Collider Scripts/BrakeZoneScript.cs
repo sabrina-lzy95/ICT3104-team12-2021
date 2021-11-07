@@ -24,11 +24,11 @@ public class BrakeZoneScript : MonoBehaviour
             CarEngine carScript = other.gameObject.transform.parent.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the car to control the car
 
             // Apply brakes if the car's speed is too high
-            if (carScript.currentSpeed > 20)
+            if (carScript.currentSpeed > 6)
             {
                 carScript.isBraking = true;
             }
-            else
+            else if (!carScript.stoppingForSomething)
             {
                 carScript.isBraking = false;
             }
