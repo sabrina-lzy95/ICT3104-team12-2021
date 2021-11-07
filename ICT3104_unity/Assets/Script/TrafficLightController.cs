@@ -6,7 +6,6 @@ public class TrafficLightController : MonoBehaviour
 {
     public AudioSource audio1;
     public AudioSource audio2;
-    public AudioSource audio3;
     public Light greenLight;
     public Light yellowLight;
     public Light redLight;
