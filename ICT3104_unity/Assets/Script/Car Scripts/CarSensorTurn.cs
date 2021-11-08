@@ -22,7 +22,7 @@ public class CarSensorTurn : MonoBehaviour
     // When other objects is within the zone
     private void OnTriggerStay(Collider other)
     {
-        if ((other.gameObject.tag == "Car" || other.gameObject.tag == "Player") && carEngineScript.isTurning) // Checks if the object that entered the collider is a car
+        if ((other.gameObject.tag == "Car") && carEngineScript.isTurning) // Checks if the object that entered the collider is a car
         {
             carEngineScript.isBraking = true;
             carEngineScript.stoppingForSomething = true;
@@ -32,7 +32,7 @@ public class CarSensorTurn : MonoBehaviour
     // When other objects leave the zone
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Car" || other.gameObject.tag == "Player") // Checks if the object that entered the collider is a car
+        if (other.gameObject.tag == "Car") // Checks if the object that entered the collider is a car
         {
             carEngineScript.stoppingForSomething = false;
 
