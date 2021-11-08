@@ -4,32 +4,29 @@ using UnityEngine;
 
 public class HeadLightScript : MonoBehaviour
 {
-    private bool isItDayTime = true;
+    private GameObject lightObject;
+    private Light light;
 
     Light headlight;
 
     // Start is called before the first frame update
     void Start()
     {
+        lightObject = GameObject.Find("Directional Light");
+        light = lightObject.GetComponent<Light>();
         headlight = gameObject.GetComponent<Light>();
-        headlight.intensity = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.inputString == "y")
+        if (light.enabled)
         {
-            if (isItDayTime)
-            {
-                headlight.intensity = 2;
-                isItDayTime = false;
-            }
-            else
-            {
-                headlight.intensity = 0;
-                isItDayTime = true;
-            }
+            headlight.intensity = 0;
+        }
+        else
+        {
+            headlight.intensity = 2;
         }
     }
 }

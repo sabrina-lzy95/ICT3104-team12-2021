@@ -7,29 +7,26 @@ public class CarLightsScript : MonoBehaviour
     public Material lightsOnMaterial;
     public Material lightsOffMaterial;
 
-    private bool isItDayTime = true;
+    private GameObject lightObject;
+    private Light light;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        lightObject = GameObject.Find("Directional Light");
+        light = lightObject.GetComponent<Light>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.inputString == "y")
+        if(light.enabled)
         {
-            if (isItDayTime)
-            {
-                gameObject.GetComponent<Renderer>().material = lightsOnMaterial;
-                isItDayTime = false;
-            }
-            else
-            {
-                gameObject.GetComponent<Renderer>().material = lightsOffMaterial;
-                isItDayTime = true;
-            }
+            gameObject.GetComponent<Renderer>().material = lightsOffMaterial;
+        }
+        else
+        {
+            gameObject.GetComponent<Renderer>().material = lightsOnMaterial;
         }
     }
 }

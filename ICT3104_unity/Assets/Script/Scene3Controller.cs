@@ -95,7 +95,7 @@ public class Scene3Controller : MonoBehaviour
 	private void TriggerDayNight()
 	{
 		
-		GameObject lightObject = GameObject.Find("Directional Light (1)");
+		GameObject lightObject = GameObject.Find("Directional Light");
 		var light = lightObject.GetComponent<Light>();
 		var _materialOne    = Resources.Load<Material>( "night" );
 		var _materialTwo    = Resources.Load<Material>( "Skybox Light" );
