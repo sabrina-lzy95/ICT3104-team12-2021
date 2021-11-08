@@ -67,7 +67,7 @@ public class Scene3Controller : MonoBehaviour
         // spawn car in spawn zone 1 if there are no objects in the spawn zone
         if (!spawnZoneScript1.haveObjectInSpawnZone)
         {
-            GameObject clonedCar = Instantiate(targetCar, new Vector3(19, 0, -55), Quaternion.Euler(0, 270, 0)); // Clone normal car at specified position and rotation.
+            GameObject clonedCar = Instantiate(targetCar, new Vector3(18, 1, -55), Quaternion.Euler(0, 270, 0)); // Clone normal car at specified position and rotation.
             CarEngine clonedCarScript = clonedCar.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the clone
             clonedCarScript.path = path1; // assign path to cloned car
         }
@@ -75,7 +75,7 @@ public class Scene3Controller : MonoBehaviour
         // spawn car in spawn zone 2 if there are no objects in the spawn zone
         if (!spawnZoneScript2.haveObjectInSpawnZone)
         {
-            GameObject clonedCar = Instantiate(targetCar, new Vector3(-50, 0, 40), Quaternion.Euler(0, 90, 0)); // Clone normal car at specified position and rotation.
+            GameObject clonedCar = Instantiate(targetCar, new Vector3(-49, 1, 40), Quaternion.Euler(0, 90, 0)); // Clone normal car at specified position and rotation.
             CarEngine clonedCarScript = clonedCar.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the clone
             clonedCarScript.path = path2; // assign path to cloned car
         }
