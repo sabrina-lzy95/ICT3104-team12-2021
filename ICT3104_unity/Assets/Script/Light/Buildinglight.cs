@@ -13,7 +13,7 @@ public class Buildinglight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             // toggle visibility:
             GetComponent<Renderer>().enabled = !GetComponent<Renderer>().enabled;
