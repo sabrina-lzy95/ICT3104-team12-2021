@@ -11,9 +11,11 @@ public class Scene6Controller : MonoBehaviour
     public GameObject normalCar;
     public GameObject autoCar;
     public GameObject trafficLight1;
-    public GameObject trafficLight2;
+    public GameObject trafficLight2; 
+    public GameObject trafficLight3;
+    public GameObject trafficLight4;
     public GameObject spawnZone1;
-    public GameObject spawnZone2;
+    //public GameObject spawnZone2;
     public GameObject RainPrefab;
 
     // Start is called before the first frame update
@@ -51,7 +53,7 @@ public class Scene6Controller : MonoBehaviour
     private void SpawnCar(string carType)
     {
         SpawnZoneScript spawnZoneScript1 = spawnZone1.GetComponent<SpawnZoneScript>(); // retrieves the script instance of spawn zone 1
-        SpawnZoneScript spawnZoneScript2 = spawnZone2.GetComponent<SpawnZoneScript>(); // retrieves the script instance of spawn zone 2
+        //SpawnZoneScript spawnZoneScript2 = spawnZone2.GetComponent<SpawnZoneScript>(); // retrieves the script instance of spawn zone 2
 
         GameObject targetCar = null;
 
@@ -67,29 +69,33 @@ public class Scene6Controller : MonoBehaviour
         // spawn car in spawn zone 1 if there are no objects in the spawn zone
         if (!spawnZoneScript1.haveObjectInSpawnZone)
         {
-            GameObject clonedCar = Instantiate(targetCar, new Vector3(18, 1, -55), Quaternion.Euler(0, 270, 0)); // Clone normal car at specified position and rotation.
+            GameObject clonedCar = Instantiate(targetCar, new Vector3(83, 1, 21), Quaternion.Euler(0, -180, 0)); // Clone normal car at specified position and rotation.
             CarEngine clonedCarScript = clonedCar.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the clone
             clonedCarScript.path = path1; // assign path to cloned car
         }
 
         // spawn car in spawn zone 2 if there are no objects in the spawn zone
-        if (!spawnZoneScript2.haveObjectInSpawnZone)
+       /* if (!spawnZoneScript2.haveObjectInSpawnZone)
         {
-            GameObject clonedCar = Instantiate(targetCar, new Vector3(-49, 1, 40), Quaternion.Euler(0, 90, 0)); // Clone normal car at specified position and rotation.
+            GameObject clonedCar = Instantiate(targetCar, new Vector3(-13, 1, -92), Quaternion.Euler(0, -270, 0)); // Clone normal car at specified position and rotation.
             CarEngine clonedCarScript = clonedCar.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the clone
             clonedCarScript.path = path2; // assign path to cloned car
-        }
+        }*/
     }
 
     private void TriggerTrafficLight()
     {
         TrafficLightController trafficLight1Script = trafficLight1.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight1
         TrafficLightController trafficLight2Script = trafficLight2.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight2
+        TrafficLightController trafficLight3Script = trafficLight3.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight3
+        TrafficLightController trafficLight4Script = trafficLight4.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight4
 
-        if (!trafficLight1Script.isTrigger && !trafficLight2Script.isTrigger)
+        if (!trafficLight1Script.isTrigger && !trafficLight2Script.isTrigger && !trafficLight3Script.isTrigger && !trafficLight4Script.isTrigger)
         {
             trafficLight1Script.isTrigger = true;
             trafficLight2Script.isTrigger = true;
+            trafficLight3Script.isTrigger = true;
+            trafficLight4Script.isTrigger = true;
         }
     }
     private void TriggerDayNight()
