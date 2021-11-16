@@ -20,7 +20,7 @@ public class EndZoneScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(other.gameObject.transform.parent.gameObject);
-        if (other.gameObject.tag == "Car") // Checks if the object that entered the collider is a car
+        if (other.gameObject.tag == "Normal Car" || other.gameObject.tag == "Auto Car") // Checks if the object that entered the collider is a car
         {
             Destroy(other.gameObject.transform.parent.gameObject);
         }

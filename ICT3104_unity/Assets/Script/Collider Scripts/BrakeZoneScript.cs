@@ -7,19 +7,19 @@ public class BrakeZoneScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // When other objects is within the zone
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Car") // Checks if the object that entered the collider is a car
+        if (other.gameObject.tag == "Normal Car" || other.gameObject.tag == "Auto Car") // Checks if the object that entered the collider is a car
         {
             CarEngine carScript = other.gameObject.transform.parent.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the car to control the car
 
@@ -38,7 +38,7 @@ public class BrakeZoneScript : MonoBehaviour
     // When other objects leave the zone
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Car") // Checks if the object that entered the collider is a car
+        if (other.gameObject.tag == "Normal Car" || other.gameObject.tag == "Auto Car") // Checks if the object that entered the collider is a car
         {
             CarEngine carScript = other.gameObject.transform.parent.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the car to control the car
             // release the brakes if they are not already released

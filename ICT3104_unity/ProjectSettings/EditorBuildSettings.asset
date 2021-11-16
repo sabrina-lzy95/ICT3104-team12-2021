@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Welcome Scene.unity
     guid: 2efc65e8250f0dc4ebf43c94123ea83f
   - enabled: 1
-    path: Assets/Scenes/Scene 1.1.unity
-    guid: 68c40cd54c3e747d28fe12dfd994a673
+    path: Assets/Scenes/Scene 1.unity
+    guid: eff898676ffa62a4f89d6bc231539305
   - enabled: 1
     path: Assets/Scenes/Scene 2.unity
     guid: 491cce6d624c3480eb03baebc9151b32
   - enabled: 1
     path: Assets/Scenes/Scene 3.unity
-    guid: 2bfef72538c03433ab556df785c3504f
+    guid: 89a28dfc941e6604fba58777962d7058
   - enabled: 1
     path: Assets/Scenes/Scene 4.unity
     guid: 90ca15d56c6c1463c831d88151fb2a56

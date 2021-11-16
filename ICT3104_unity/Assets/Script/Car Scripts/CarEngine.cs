@@ -5,20 +5,23 @@ using UnityEngine;
 public class CarEngine : MonoBehaviour
 {
     public Transform path;
-    public float maxSteerAngle = 45f;
+    public float maxSteerAngle = 70f;
     public WheelCollider wheelFL;
     public WheelCollider wheelFR;
     public WheelCollider wheelRL;
     public WheelCollider wheelRR;
-    public float maxBrakeTorque = 1000f;
-    public float maxMotorTorque = 80f;
+    public GameObject sensorFar;
+    public GameObject sensorMedium;
+    public GameObject sensorLeft;
+    public GameObject sensorRight;
+    public float maxBrakeTorque = 500f;
+    public float maxMotorTorque = 150f;
     public float currentSpeed;
     public float maxSpeed = 10f;
     public Vector3 centerOfMass;
     public bool isBraking = false;
-    public bool isTurning = false;
     public bool stoppingForSomething = false;
-    public bool stoppingAtTrafficLight = false;
+    public bool stoppingAtCrossing = false;
 
     //Store all the nodes of the path
     private List<Transform> nodes;
@@ -26,6 +29,7 @@ public class CarEngine : MonoBehaviour
     private int currentNode = 0;
     // car's rigidbody
     private Rigidbody rb;
+    private float currentAngle;
 
     void Start()
     {
@@ -58,6 +62,7 @@ public class CarEngine : MonoBehaviour
         ApplySteer();
         Drive();
         Braking();
+        Sensors();
         CheckWaypointDistance();
     }
 
@@ -69,15 +74,7 @@ public class CarEngine : MonoBehaviour
         float newSteer = (relativeVector.x / relativeVector.magnitude) * maxSteerAngle;
         wheelFL.steerAngle = newSteer;
         wheelFR.steerAngle = newSteer;
-
-        if (newSteer >= 20)
-        {
-            isTurning = true;
-        }
-        else
-        {
-            isTurning = false;
-        }
+        currentAngle = newSteer;
     }
 
     //Calculation for autonomous driving towards the waypoint
@@ -117,6 +114,47 @@ public class CarEngine : MonoBehaviour
             wheelFR.brakeTorque = 0;
             wheelRL.brakeTorque = 0;
             wheelRR.brakeTorque = 0;
+        }
+    }
+
+    private void Sensors()
+    {
+        // turning right
+        if (currentAngle >= 10)
+        {
+            sensorFar.SetActive(false);
+            sensorMedium.SetActive(false);
+            sensorLeft.SetActive(false);
+            sensorRight.SetActive(true);
+        }
+        // turning left
+        else if (currentAngle <= -10)
+        {
+            sensorFar.SetActive(false);
+            sensorMedium.SetActive(false);
+            sensorLeft.SetActive(true);
+            sensorRight.SetActive(false);
+        }
+        // going straight
+        else
+        {
+            if (currentSpeed > 8)
+            {
+                sensorFar.SetActive(true);
+                sensorMedium.SetActive(true);
+            }
+            else if (currentSpeed > 5)
+            {
+                sensorFar.SetActive(false);
+                sensorMedium.SetActive(true);
+            }
+            else
+            {
+                sensorFar.SetActive(false);
+                sensorMedium.SetActive(false);
+            }
+            sensorLeft.SetActive(false);
+            sensorRight.SetActive(false);
         }
     }
 
