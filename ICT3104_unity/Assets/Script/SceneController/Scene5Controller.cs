@@ -9,9 +9,11 @@ public class Scene5Controller : MonoBehaviour
     public Transform path1;
     public Transform path2;
     public GameObject normalCar;
-    public GameObject autoCar;
+    //public GameObject autoCar;
     public GameObject trafficLight1;
     public GameObject trafficLight2;
+    public GameObject trafficLight3;
+    public GameObject trafficLight4;
     public GameObject spawnZone1;
     public GameObject spawnZone2;
     public GameObject RainPrefab;
@@ -76,7 +78,7 @@ public class Scene5Controller : MonoBehaviour
         // spawn car in spawn zone 1 if there are no objects in the spawn zone
         if (!spawnZoneScript1.haveObjectInSpawnZone)
         {
-            GameObject clonedCar = Instantiate(targetCar, new Vector3(18, 1, -55), Quaternion.Euler(0, 270, 0)); // Clone normal car at specified position and rotation.
+            GameObject clonedCar = Instantiate(targetCar, new Vector3(114, 1, 17), Quaternion.Euler(0, 180, 0)); // Clone normal car at specified position and rotation.
             CarEngine clonedCarScript = clonedCar.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the clone
             clonedCarScript.path = path1; // assign path to cloned car
         }
@@ -84,7 +86,7 @@ public class Scene5Controller : MonoBehaviour
         // spawn car in spawn zone 2 if there are no objects in the spawn zone
         if (!spawnZoneScript2.haveObjectInSpawnZone)
         {
-            GameObject clonedCar = Instantiate(targetCar, new Vector3(-49, 1, 40), Quaternion.Euler(0, 90, 0)); // Clone normal car at specified position and rotation.
+            GameObject clonedCar = Instantiate(targetCar, new Vector3(106, 1, -37), Quaternion.Euler(0, 0, 0)); // Clone normal car at specified position and rotation.
             CarEngine clonedCarScript = clonedCar.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the clone
             clonedCarScript.path = path2; // assign path to cloned car
         }
@@ -94,11 +96,15 @@ public class Scene5Controller : MonoBehaviour
     {
         TrafficLightController trafficLight1Script = trafficLight1.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight1
         TrafficLightController trafficLight2Script = trafficLight2.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight2
+        TrafficLightController trafficLight3Script = trafficLight3.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight3
+        TrafficLightController trafficLight4Script = trafficLight3.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight4
 
         if (!trafficLight1Script.isTrigger && !trafficLight2Script.isTrigger)
         {
             trafficLight1Script.isTrigger = true;
             trafficLight2Script.isTrigger = true;
+            trafficLight3Script.isTrigger = true;
+            trafficLight4Script.isTrigger = true;
         }
     }
     private void TriggerDayNight()

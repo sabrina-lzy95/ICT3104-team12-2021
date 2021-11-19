@@ -16,7 +16,7 @@ public class Streetlight : MonoBehaviour
 	void Update()
 	{
 		// Toggle light on/off when L key is pressed.
-		if (Input.GetKeyUp(KeyCode.L))
+		if (Input.GetKeyUp(KeyCode.Y))
 		{
 			light.enabled = !light.enabled;
 		}

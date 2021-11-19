@@ -9,7 +9,7 @@ public class Scene6Controller : MonoBehaviour
     public Transform path1;
     public Transform path2;
     public GameObject normalCar;
-    public GameObject autoCar;
+    //public GameObject autoCar;
     public GameObject trafficLight1;
     public GameObject trafficLight2; 
     public GameObject trafficLight3;
