@@ -75513,6 +75513,9 @@ MonoBehaviour:
   spawnZone1: {fileID: 956595726}
   spawnZone2: {fileID: 2008505708}
   RainPrefab: {fileID: 913491302}
+  autocar1: {fileID: 1942447109}
+  autocar2: {fileID: 1324072124}
+  autocar3: {fileID: 292431812}
 --- !u!1001 &2119920529
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -18,10 +18,18 @@ public class Scene6Controller : MonoBehaviour
     //public GameObject spawnZone2;
     public GameObject RainPrefab;
 
+    List<GameObject> prefabList = new List<GameObject>();
+    public GameObject autocar1;
+    public GameObject autocar2;
+    public GameObject autocar3;
+    int prefabIndex;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        prefabList.Add(autocar1);
+        prefabList.Add(autocar2);
+        prefabList.Add(autocar3);
     }
 
     // Update is called once per frame
@@ -63,7 +71,8 @@ public class Scene6Controller : MonoBehaviour
         }
         else if (carType == "Auto")
         {
-            targetCar = autoCar;
+            prefabIndex = UnityEngine.Random.Range(0, 3);
+            targetCar = prefabList[prefabIndex];
         }
 
         // spawn car in spawn zone 1 if there are no objects in the spawn zone

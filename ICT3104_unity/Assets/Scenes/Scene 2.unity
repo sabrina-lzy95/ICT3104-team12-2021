@@ -68366,6 +68366,9 @@ MonoBehaviour:
   autoCar: {fileID: 475802574}
   spawnZone1: {fileID: 1953826332}
   RainPrefab: {fileID: 254072605}
+  autocar1: {fileID: 1040513363}
+  autocar2: {fileID: 475802574}
+  autocar3: {fileID: 99336419}
 --- !u!114 &2053224986
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,20 +6,24 @@ using UnityEngine;
 public class Scene2Controller : MonoBehaviour
 {
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
-    public Transform path1;
-    //public Transform path2;
+    public Transform path1;    
     public GameObject normalCar;
     public GameObject autoCar;
-    //public GameObject trafficLight1;
-    //public GameObject trafficLight2;
-    public GameObject spawnZone1;
-    //public GameObject spawnZone2;
+    public GameObject spawnZone1;  
     public GameObject RainPrefab;
 
+    List<GameObject> prefabList = new List<GameObject>();
+    public GameObject autocar1;
+    public GameObject autocar2;
+    public GameObject autocar3;
+
+    int prefabIndex;
     // Start is called before the first frame update
     void Start()
     {
-
+        prefabList.Add(autocar1);
+        prefabList.Add(autocar2);
+        prefabList.Add(autocar3);
     }
 
     // Update is called once per frame
@@ -61,7 +65,8 @@ public class Scene2Controller : MonoBehaviour
         }
         else if (carType == "Auto")
         {
-            targetCar = autoCar;
+            prefabIndex = UnityEngine.Random.Range(0, 3);
+            targetCar = prefabList[prefabIndex];
         }
 
         // spawn car in spawn zone 1 if there are no objects in the spawn zone
