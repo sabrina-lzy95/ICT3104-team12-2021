@@ -7,9 +7,6 @@ public class Scene1Controller : MonoBehaviour
 {
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
     public Transform path1;
-    
-    public GameObject normalCar;
-    public GameObject autoCar;
     public GameObject trafficLight1;
     public GameObject trafficLight2;
     public GameObject spawnZone1;
@@ -17,6 +14,7 @@ public class Scene1Controller : MonoBehaviour
     public GameObject RainPrefab;
 
     List<GameObject> prefabList = new List<GameObject>();
+    public GameObject normalCar;
     public GameObject autocar1;
     public GameObject autocar2;
     public GameObject autocar3;

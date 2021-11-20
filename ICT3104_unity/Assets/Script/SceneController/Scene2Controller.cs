@@ -7,12 +7,11 @@ public class Scene2Controller : MonoBehaviour
 {
     // Reference to the Prefab. Drag a Prefab into this field in the Inspector.
     public Transform path1;    
-    public GameObject normalCar;
-    public GameObject autoCar;
     public GameObject spawnZone1;  
     public GameObject RainPrefab;
 
     List<GameObject> prefabList = new List<GameObject>();
+    public GameObject normalCar;
     public GameObject autocar1;
     public GameObject autocar2;
     public GameObject autocar3;
@@ -55,7 +54,6 @@ public class Scene2Controller : MonoBehaviour
     private void SpawnCar(string carType)
     {
         SpawnZoneScript spawnZoneScript1 = spawnZone1.GetComponent<SpawnZoneScript>(); // retrieves the script instance of spawn zone 1
-        //SpawnZoneScript spawnZoneScript2 = spawnZone2.GetComponent<SpawnZoneScript>(); // retrieves the script instance of spawn zone 2
 
         GameObject targetCar = null;
 
@@ -76,27 +74,8 @@ public class Scene2Controller : MonoBehaviour
             CarEngine clonedCarScript = clonedCar.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the clone
             clonedCarScript.path = path1; // assign path to cloned car
         }
-
-        // spawn car in spawn zone 2 if there are no objects in the spawn zone
-        /*if (!spawnZoneScript2.haveObjectInSpawnZone)
-        {
-            GameObject clonedCar = Instantiate(targetCar, new Vector3(-49, 1, 40), Quaternion.Euler(0, 90, 0)); // Clone normal car at specified position and rotation.
-            CarEngine clonedCarScript = clonedCar.gameObject.GetComponent<CarEngine>(); // retrieves the script instance from the clone
-            clonedCarScript.path = path2; // assign path to cloned car
-        }*/
     }
 
-   /* private void TriggerTrafficLight()
-    {
-        TrafficLightController trafficLight1Script = trafficLight1.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight1
-        TrafficLightController trafficLight2Script = trafficLight2.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight2
-
-        if (!trafficLight1Script.isTrigger && !trafficLight2Script.isTrigger)
-        {
-            trafficLight1Script.isTrigger = true;
-            trafficLight2Script.isTrigger = true;
-        }
-    }*/
     private void TriggerDayNight()
     {
 

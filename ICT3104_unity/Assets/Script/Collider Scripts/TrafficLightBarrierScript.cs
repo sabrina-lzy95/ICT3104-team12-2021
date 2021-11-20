@@ -46,6 +46,7 @@ public class TrafficLightBarrierScript : MonoBehaviour
         if (other.gameObject.tag != "Player")
         {
             // Other is the near sensor of the car, we need access the car itself to check the tag
+            // save the car object to the car variable so we can use it to control the car
             car = other.gameObject.transform.parent.gameObject.transform.parent.gameObject;
         }
     }

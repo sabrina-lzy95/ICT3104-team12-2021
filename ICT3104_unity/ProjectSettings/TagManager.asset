@@ -6,7 +6,9 @@ TagManager:
   tags:
   - Normal Car
   - Auto Car
-  - Crossing Zone
+  - Zebra Crossing Zone
+  - Zebra Crossing Barrier
+  - Traffic Light Barrier
   layers:
   - Default
   - TransparentFX

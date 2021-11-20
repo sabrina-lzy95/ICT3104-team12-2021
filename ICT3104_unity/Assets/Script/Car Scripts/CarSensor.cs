@@ -27,7 +27,24 @@ public class CarSensor : MonoBehaviour
             carEngineScript.isBraking = true;
             carEngineScript.stoppingForSomething = true;
         }
-        else if (other.gameObject.tag == "Crossing Zone")
+        else if (other.gameObject.tag == "Zebra Crossing Barrier")
+        {
+            // if this car is a normal car, it will randomly decide to stop or not
+            if (car.gameObject.tag == "Normal Car")
+            {
+                if (carEngineScript.giveWayAtZebra == 1)
+                {
+                    carEngineScript.isBraking = true;
+                    carEngineScript.stoppingAtCrossing = true;
+                }
+            }
+            else if (car.gameObject.tag == "Auto Car")
+            {
+                carEngineScript.isBraking = true;
+                carEngineScript.stoppingAtCrossing = true;
+            }
+        }
+        else if (other.gameObject.tag == "Traffic Light Barrier")
         {
             carEngineScript.isBraking = true;
             carEngineScript.stoppingAtCrossing = true;

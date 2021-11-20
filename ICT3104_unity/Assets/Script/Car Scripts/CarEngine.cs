@@ -22,6 +22,7 @@ public class CarEngine : MonoBehaviour
     public bool isBraking = false;
     public bool stoppingForSomething = false;
     public bool stoppingAtCrossing = false;
+    public int giveWayAtZebra;
 
     //Store all the nodes of the path
     private List<Transform> nodes;
@@ -34,36 +35,50 @@ public class CarEngine : MonoBehaviour
     void Start()
     {
         GetComponent<Rigidbody>().centerOfMass = centerOfMass;
-        
-        //GetComponentsInChildren find all the child objects
-        Transform[] pathTransforms = path.GetComponentsInChildren<Transform>();
 
-        //Making sure our list is empty at the beginning, so we set this to a new list
-        nodes = new List<Transform>();
-
-        //Looping through the array
-        for (int i = 0; i < pathTransforms.Length; i++)
+        // original cars dont have paths assigned to them, only cloned cars have paths assigned upon instantiating.
+        // check not null to prevent error messages
+        if (path != null) 
         {
-            //If the transform is not our own transform, 
-            if (pathTransforms[i] != path.transform)
+            //GetComponentsInChildren find all the child objects
+            Transform[] pathTransforms = path.GetComponentsInChildren<Transform>();
+
+            //Making sure our list is empty at the beginning, so we set this to a new list
+            nodes = new List<Transform>();
+
+            //Looping through the array
+            for (int i = 0; i < pathTransforms.Length; i++)
             {
-                //we're going to add it to the node array which node array only contains our child nodes
-                nodes.Add(pathTransforms[i]);
+                //If the transform is not our own transform, 
+                if (pathTransforms[i] != path.transform)
+                {
+                    //we're going to add it to the node array which node array only contains our child nodes
+                    nodes.Add(pathTransforms[i]);
+                }
             }
         }
-
+        
         // get the rigid body of the car so can get speed
         rb = gameObject.GetComponent<Rigidbody>();
+        // random value for give way, if its 1, this car will give way at zebra crossings.
+        giveWayAtZebra = UnityEngine.Random.Range(0, 2);
     }
 
     private void FixedUpdate()
     {
         currentSpeed = rb.velocity.magnitude; // speed of car
-        ApplySteer();
+
+        // original cars dont have paths assigned to them, only cloned cars have paths assigned upon instantiating.
+        // check not null to prevent error messages
+        if (path != null)
+        {
+            ApplySteer();
+            CheckWaypointDistance();
+        }
+
         Drive();
         Braking();
         Sensors();
-        CheckWaypointDistance();
     }
 
     //Calculation for the wheel turning the right direction depending on where the next waypoint.
