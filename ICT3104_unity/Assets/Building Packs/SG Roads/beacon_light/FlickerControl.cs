@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class FlickerControl : MonoBehaviour
 {
-    public bool isFlickering = false;
-    public float timeDelay;
+    public Material lightsOnMaterial;
+    public Material lightsOffMaterial;
+    private bool isFlickering = false;
 
     // Update is called once per frame
     void Update()
@@ -20,16 +21,15 @@ public class FlickerControl : MonoBehaviour
     {
         isFlickering = true;
 
-        //turn off the light while keeping the object active
-        this.gameObject.GetComponent<Light>().enabled = false;
-        //determine the timedelay, the higher the max the less flickering
-        timeDelay = Random.Range(0.01f, 0.2f);
-        yield return new WaitForSeconds(timeDelay);
+        //turn off the light 
+        gameObject.GetComponent<Renderer>().material = lightsOffMaterial;
+        //delay for 1 sec
+        yield return new WaitForSeconds(1);
 
-        //turn the light component back on
-        this.gameObject.GetComponent<Light>().enabled = true;
-        timeDelay = Random.Range(0.01f, 0.2f);
-        yield return new WaitForSeconds(timeDelay);
+        //turn on the light
+        gameObject.GetComponent<Renderer>().material = lightsOnMaterial;
+        //delay for 1 sec
+        yield return new WaitForSeconds(1);
 
         //will keep restarting coroutine, because if statement = false
         isFlickering = false;
