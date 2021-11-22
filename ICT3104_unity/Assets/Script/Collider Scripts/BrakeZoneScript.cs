@@ -28,7 +28,7 @@ public class BrakeZoneScript : MonoBehaviour
             {
                 carScript.isBraking = true;
             }
-            else if (!carScript.stoppingForSomething)
+            else if (!carScript.stoppingForCar || !carScript.stoppingForPlayer)
             {
                 carScript.isBraking = false;
             }

@@ -35,20 +35,30 @@ public class NormalCarSensor : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         // dont have to check for crossing zone because crossing zone collider will get disabled instead of exiting
-        if (other.gameObject.tag == "Normal Car" || other.gameObject.tag == "Auto Car" || other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Normal Car" || other.gameObject.tag == "Auto Car")
         {
             carEngineScript.isBraking = false;
-            carEngineScript.stoppingForSomething = false;
+            carEngineScript.stoppingForCar = false;
+        }
+        else if (other.gameObject.tag == "Player")
+        {
+            carEngineScript.isBraking = false;
+            carEngineScript.stoppingForPlayer = false;
             playAudio = true; // reset the horn so can play again next tmr player enter.
         }
     }
 
     private void CheckForCollision(Collider other)
     {
-        if (other.gameObject.tag == "Normal Car" || other.gameObject.tag == "Auto Car" || other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Normal Car" || other.gameObject.tag == "Auto Car")
         {
             carEngineScript.isBraking = true;
-            carEngineScript.stoppingForSomething = true;
+            carEngineScript.stoppingForCar = true;
+        }
+        else if (other.gameObject.tag == "Player")
+        {
+            carEngineScript.isBraking = true;
+            carEngineScript.stoppingForPlayer = true;
         }
     }
 
@@ -87,6 +97,7 @@ public class NormalCarSensor : MonoBehaviour
     {
         carEngineScript.isBraking = false;
         carEngineScript.stoppingAtCrossing = false;
-        carEngineScript.stoppingForSomething = false;
+        carEngineScript.stoppingForCar = false;
+        carEngineScript.stoppingForPlayer = false;
     }
 }

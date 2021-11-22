@@ -20,7 +20,8 @@ public class CarEngine : MonoBehaviour
     public float maxSpeed = 10f;
     public Vector3 centerOfMass;
     public bool isBraking = false;
-    public bool stoppingForSomething = false;
+    public bool stoppingForCar = false;
+    public bool stoppingForPlayer = false;
     public bool stoppingAtCrossing = false;
     public int giveWayAtZebra;
 
