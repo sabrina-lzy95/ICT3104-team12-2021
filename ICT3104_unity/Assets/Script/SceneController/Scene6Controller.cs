@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
-using System.Globalization;
 
 public class Scene6Controller : MonoBehaviour
 {
@@ -31,18 +30,18 @@ public class Scene6Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        prefabList.Add(autocar1);
+        prefabList.Add(autocar2);
+        prefabList.Add(autocar3);
+
 		localDate = DateTime.Now;
 		string path = "Assets/Resources/test.log";
 		writer = new StreamWriter(path, true);    
 		writer.WriteLine(localDate.ToString() + ","+ "Loaded Scene 6" );
-        prefabList.Add(autocar1);
-        prefabList.Add(autocar2);
-        prefabList.Add(autocar3);
-		StartCoroutine("DoCheck");
+		StartCoroutine("LogUserLocation");
 		    }
 
-    // Update is called once per frame
-	 IEnumerator DoCheck() {
+	 IEnumerator LogUserLocation() {
      for(;;) {
          // execute block of code here
 		localDate = DateTime.Now;
@@ -50,9 +49,10 @@ public class Scene6Controller : MonoBehaviour
 		Console.WriteLine(playerObj);
 		writer.WriteLine(localDate.ToString() + ","+"User Location x: "+ playerObj.transform.position.x+" y: "+playerObj.transform.position.z);
 
-    yield return new WaitForSeconds(10.0f);
+    yield return new WaitForSeconds(2.5f);
      }
  }
+    // Update is called once per frame
     void Update()
     {
 
@@ -81,6 +81,11 @@ public class Scene6Controller : MonoBehaviour
     }
 
 	void OnDestroy(){
+		localDate = DateTime.Now;
+		writer.WriteLine(localDate.ToString() + ",Leaving Scene 6!");
+		writer.WriteLine( "####################,###################");
+		writer.WriteLine( "####################,###################");
+
 		writer.Close();
 	}
     private void SpawnCar(string carType)

@@ -2,6 +2,8 @@ using DigitalRuby.RainMaker;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System;
 
 public class Scene1Controller : MonoBehaviour
 {
@@ -19,6 +21,8 @@ public class Scene1Controller : MonoBehaviour
     public GameObject autocar2;
     public GameObject autocar3;
     int prefabIndex;
+	StreamWriter writer;
+	DateTime localDate;
 
     // Start is called before the first frame update
     void Start()
@@ -26,8 +30,24 @@ public class Scene1Controller : MonoBehaviour
         prefabList.Add(autocar1);
         prefabList.Add(autocar2);
         prefabList.Add(autocar3);
+
+		localDate = DateTime.Now;
+		string path = "Assets/Resources/test.log";
+		writer = new StreamWriter(path, true);    
+		writer.WriteLine(localDate.ToString() + ","+ "Loaded Scene 1" );
+		StartCoroutine("LogUserLocation");
     }
 
+	 IEnumerator LogUserLocation() {
+		 for(;;) {
+			 // execute block of code here
+			localDate = DateTime.Now;
+			var playerObj  = GameObject.FindGameObjectWithTag("Player");
+			Console.WriteLine(playerObj);
+			writer.WriteLine(localDate.ToString() + ","+"User Location x: "+ playerObj.transform.position.x+" y: "+playerObj.transform.position.z);
+			yield return new WaitForSeconds(2.5f);
+		}
+ 	}
     // Update is called once per frame
     void Update()
     {
@@ -54,8 +74,17 @@ public class Scene1Controller : MonoBehaviour
         }
     }
 
+	void OnDestroy(){
+		localDate = DateTime.Now;
+		writer.WriteLine(localDate.ToString() + ",Leaving Scene 1!");
+		writer.WriteLine( "####################,###################");
+		writer.WriteLine( "####################,###################");
+
+		writer.Close();
+	}
     private void SpawnCar(string carType)
     {
+		localDate = DateTime.Now;
         SpawnZoneScript spawnZoneScript1 = spawnZone1.GetComponent<SpawnZoneScript>(); // retrieves the script instance of spawn zone 1
         
 
@@ -63,10 +92,12 @@ public class Scene1Controller : MonoBehaviour
 
         if (carType == "Normal")
         {
+			writer.WriteLine(localDate.ToString() + ",Spawned Normal Car!");
             targetCar = normalCar;
         }
         else if (carType == "Auto")
         {
+			writer.WriteLine(localDate.ToString() + ",Spawned Auto Car!");
             prefabIndex = UnityEngine.Random.Range(0, 3);
             targetCar = prefabList[prefabIndex];
         }
@@ -83,6 +114,8 @@ public class Scene1Controller : MonoBehaviour
 
     private void TriggerTrafficLight()
     {
+		localDate = DateTime.Now;
+		writer.WriteLine(localDate.ToString() + ",Triggered Traffic Light!");
         TrafficLightController trafficLight1Script = trafficLight1.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight1
         TrafficLightController trafficLight2Script = trafficLight2.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight2
 
@@ -95,6 +128,8 @@ public class Scene1Controller : MonoBehaviour
     private void TriggerDayNight()
     {
 
+		localDate = DateTime.Now;
+			writer.WriteLine(localDate.ToString() + ",Night Triggered");
         GameObject lightObject = GameObject.Find("Directional Light");
         var light = lightObject.GetComponent<Light>();
         var _materialOne = Resources.Load<Material>("night");
@@ -104,6 +139,7 @@ public class Scene1Controller : MonoBehaviour
         //Material nightMat = new Material(Application.dataPath + "/Assets/script"+ "Night" +".mat");
         if (light.enabled)
         {
+			writer.WriteLine(localDate.ToString() + ",Day Triggered");
             RenderSettings.skybox = _materialOne;
             light.enabled = false;
             DynamicGI.UpdateEnvironment();
@@ -122,14 +158,17 @@ public class Scene1Controller : MonoBehaviour
     private void TriggerRain()
     {
 
+		localDate = DateTime.Now;
         RainScript rain = RainPrefab.GetComponent<RainScript>();
 
         if (rain.RainIntensity == 0)
         {
+			writer.WriteLine(localDate.ToString() + ",Rain Started");
             rain.RainIntensity = 1;
         }
         else
         {
+			writer.WriteLine(localDate.ToString() + ",Rain Ended");
             rain.RainIntensity = 0;
         }
 
