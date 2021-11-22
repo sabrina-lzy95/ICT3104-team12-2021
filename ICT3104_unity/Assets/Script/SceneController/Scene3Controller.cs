@@ -34,7 +34,7 @@ public class Scene3Controller : MonoBehaviour
         
 
 		localDate = DateTime.Now;
-		string path = "Assets/Resources/test.log";
+		string path = "Assets/Resources/Log.csv";
 		writer = new StreamWriter(path, true);    
 		writer.WriteLine(localDate.ToString() + ","+ "Loaded Scene 3" );
 		StartCoroutine("LogUserLocation");

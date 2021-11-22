@@ -32,7 +32,7 @@ public class Scene1Controller : MonoBehaviour
         prefabList.Add(autocar3);
 
 		localDate = DateTime.Now;
-		string path = "Assets/Resources/test.log";
+		string path = "Assets/Resources/Log.csv";
 		writer = new StreamWriter(path, true);    
 		writer.WriteLine(localDate.ToString() + ","+ "Loaded Scene 1" );
 		StartCoroutine("LogUserLocation");
