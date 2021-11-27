@@ -2,22 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System.IO;
+using System;
 
 public class LoadSceneController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+		
+		PlayerPrefs.SetString ("log","");
     }
 
     // Update is called once per frame
+	
     void Update()
     {
+        //writer.WriteLine(localDate.ToString() + "," + "Test");
+
+	//PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+"Try");
+		
+		string[] cars = {PlayerPrefs.GetString("log")};
+		File.WriteAllLines("Assets/Resources/test.csv",cars );
         var pressedKey = Input.inputString;
 
         switch (pressedKey)
         {
+
             case "0":
                 StartCoroutine(LoadWelcomeScene());
                 break;
@@ -38,11 +49,13 @@ public class LoadSceneController : MonoBehaviour
                 break;
             case "6":
                 StartCoroutine(LoadYourAsyncScene("6"));
+				
                 break;
             case "7":
                 StartCoroutine(LoadYourAsyncScene("7"));
                 break;
         }
+
     }
 
     IEnumerator LoadYourAsyncScene(string key)

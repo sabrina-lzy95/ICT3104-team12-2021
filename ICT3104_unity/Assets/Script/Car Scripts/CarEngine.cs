@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CarEngine : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class CarEngine : MonoBehaviour
     // car's rigidbody
     private Rigidbody rb;
     private float currentAngle;
+	private bool currentStopForPlayer = false;
+	private bool currentStopForCar = false;
+	private bool currentStopForCrossing = false;
+	DateTime localDate;
 
     void Start()
     {
@@ -67,6 +72,19 @@ public class CarEngine : MonoBehaviour
 
     private void FixedUpdate()
     {
+		localDate = DateTime.Now;
+		if(currentStopForPlayer == false && stoppingForPlayer == true){
+			PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString()+","+"Car stopped for player");
+			currentStopForPlayer = true;
+		}
+		if(currentStopForCar == false && stoppingForCar == true){
+			PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString()+","+"Car stopped for car");
+			currentStopForCar = true;
+		}
+		if(currentStopForCrossing == false && stoppingAtCrossing == true){
+			PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString()+","+"Car stopped for crossing");
+			currentStopForCrossing = true;
+		}
         currentSpeed = rb.velocity.magnitude; // speed of car
 
         // original cars dont have paths assigned to them, only cloned cars have paths assigned upon instantiating.
@@ -119,6 +137,8 @@ public class CarEngine : MonoBehaviour
     {
         if (isBraking)
         {
+
+
             wheelFL.brakeTorque = maxBrakeTorque;
             wheelFR.brakeTorque = maxBrakeTorque;
             wheelRL.brakeTorque = maxBrakeTorque;
@@ -126,6 +146,9 @@ public class CarEngine : MonoBehaviour
         } 
         else
         {
+			currentStopForPlayer = false;
+			currentStopForCar = false;
+			currentStopForCrossing = false;
             wheelFL.brakeTorque = 0;
             wheelFR.brakeTorque = 0;
             wheelRL.brakeTorque = 0;

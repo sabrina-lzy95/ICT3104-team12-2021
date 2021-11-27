@@ -35,6 +35,7 @@ public class Scene1Controller : MonoBehaviour
 		string path = "Assets/Resources/Log.csv";
 		writer = new StreamWriter(path, true);    
 		writer.WriteLine(localDate.ToString() + ","+ "Loaded Scene 1" );
+		PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+ "Loaded Scene 1" );
 		StartCoroutine("LogUserLocation");
     }
 
@@ -45,6 +46,7 @@ public class Scene1Controller : MonoBehaviour
 			var playerObj  = GameObject.FindGameObjectWithTag("Player");
 			Console.WriteLine(playerObj);
 			writer.WriteLine(localDate.ToString() + ","+"User Location x: "+ playerObj.transform.position.x+" y: "+playerObj.transform.position.z);
+			PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+"User Location x: "+ playerObj.transform.position.x.ToString("0.00")+" y: "+playerObj.transform.position.z.ToString("0.00"));
 			yield return new WaitForSeconds(2.5f);
 		}
  	}
@@ -80,6 +82,9 @@ public class Scene1Controller : MonoBehaviour
 		writer.WriteLine( "####################,###################");
 		writer.WriteLine( "####################,###################");
 
+		PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+ "Leaving Scene 1!" );
+		PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+ "####################,###################" );
+		PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+ "####################,###################" );
 		writer.Close();
 	}
     private void SpawnCar(string carType)
@@ -92,11 +97,13 @@ public class Scene1Controller : MonoBehaviour
 
         if (carType == "Normal")
         {
+			PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+ "Spawned Normal Car!" );
 			writer.WriteLine(localDate.ToString() + ",Spawned Normal Car!");
             targetCar = normalCar;
         }
         else if (carType == "Auto")
         {
+			PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+ "Spawned Auto Car!" );
 			writer.WriteLine(localDate.ToString() + ",Spawned Auto Car!");
             prefabIndex = UnityEngine.Random.Range(0, 3);
             targetCar = prefabList[prefabIndex];
@@ -116,6 +123,8 @@ public class Scene1Controller : MonoBehaviour
     {
 		localDate = DateTime.Now;
 		writer.WriteLine(localDate.ToString() + ",Triggered Traffic Light!");
+		writer.WriteLine(localDate.ToString() + ",Triggered Traffic Light!");
+		PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+ "Triggered Traffic Light!" );
         TrafficLightController trafficLight1Script = trafficLight1.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight1
         TrafficLightController trafficLight2Script = trafficLight2.GetComponent<TrafficLightController>(); // retrieves the script instance of the trafficLight2
 
@@ -139,6 +148,7 @@ public class Scene1Controller : MonoBehaviour
         //Material nightMat = new Material(Application.dataPath + "/Assets/script"+ "Night" +".mat");
         if (light.enabled)
         {
+			PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+ "Day Triggered" );
 			writer.WriteLine(localDate.ToString() + ",Day Triggered");
             RenderSettings.skybox = _materialOne;
             light.enabled = false;
@@ -148,6 +158,7 @@ public class Scene1Controller : MonoBehaviour
         else
         {
 
+			PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+ "Night Triggered" );
             RenderSettings.skybox = _materialTwo;
             light.enabled = true;
             DynamicGI.UpdateEnvironment();
@@ -163,11 +174,14 @@ public class Scene1Controller : MonoBehaviour
 
         if (rain.RainIntensity == 0)
         {
+			PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+ "Rain Started" );
 			writer.WriteLine(localDate.ToString() + ",Rain Started");
             rain.RainIntensity = 1;
         }
         else
         {
+			PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+localDate.ToString() + ","+ "Rain Ended" );
+			writer.WriteLine(localDate.ToString() + ",Rain Ended");
 			writer.WriteLine(localDate.ToString() + ",Rain Ended");
             rain.RainIntensity = 0;
         }
