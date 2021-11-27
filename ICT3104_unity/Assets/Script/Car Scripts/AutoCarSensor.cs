@@ -7,6 +7,8 @@ public class AutoCarSensor : MonoBehaviour
     public GameObject car;
     public GameObject go_sign;
     public GameObject stop_sign;
+    private AudioSource carHorn;
+    private bool playAudio = true;
 
     private CarEngine carEngineScript;
 
@@ -14,6 +16,7 @@ public class AutoCarSensor : MonoBehaviour
     void Start()
     {
         carEngineScript = car.GetComponent<CarEngine>();
+        carHorn = car.GetComponent<AudioSource>();
         go_sign.SetActive(false);
         stop_sign.SetActive(false);
     }
@@ -50,6 +53,7 @@ public class AutoCarSensor : MonoBehaviour
             carEngineScript.isBraking = false;
             carEngineScript.stoppingForPlayer = false;
             stop_sign.SetActive(false);
+            playAudio = true; // reset the horn so can play again next tmr player enter.
         }
     }
 
@@ -82,6 +86,11 @@ public class AutoCarSensor : MonoBehaviour
         if (carEngineScript.stoppingAtCrossing == false && other.gameObject.tag == "Player")
         {
             stop_sign.SetActive(true);
+            if (playAudio == true)
+            {
+                carHorn.Play();
+            }
+            playAudio = false;
         }
         // show go sign if car is stopped at crossing
         else if (carEngineScript.stoppingAtCrossing == true)
