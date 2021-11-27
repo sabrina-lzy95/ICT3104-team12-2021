@@ -641,7 +641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 5685025560551235124}
   go_sign: {fileID: 5691775331170606657}
-  stop_sign: {fileID: 7160007961731732396}
+  stop_sign: {fileID: 8232588122361164573}
 --- !u!1 &1073870246337501720
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,7 +762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 5685025560551235124}
   go_sign: {fileID: 5691775331170606657}
-  stop_sign: {fileID: 7160007961731732396}
+  stop_sign: {fileID: 8232588122361164573}
 --- !u!1 &2265710414939984220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,7 +1374,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2780987678568284960}
-  - {fileID: 6470645505167294274}
+  - {fileID: 7614988250948502494}
   m_Father: {fileID: 8533124889560479781}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1527,7 +1527,8 @@ MonoBehaviour:
   maxSpeed: 10
   centerOfMass: {x: 0, y: 0, z: -2.3}
   isBraking: 0
-  stoppingForSomething: 0
+  stoppingForCar: 0
+  stoppingForPlayer: 0
   stoppingAtCrossing: 0
   giveWayAtZebra: 0
 --- !u!1 &5718059011910930666
@@ -1721,7 +1722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 5685025560551235124}
   go_sign: {fileID: 5691775331170606657}
-  stop_sign: {fileID: 7160007961731732396}
+  stop_sign: {fileID: 8232588122361164573}
 --- !u!1 &6474644551891528400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,7 +1949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 5685025560551235124}
   go_sign: {fileID: 5691775331170606657}
-  stop_sign: {fileID: 7160007961731732396}
+  stop_sign: {fileID: 8232588122361164573}
 --- !u!1 &7780396939075888363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,7 +2009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   car: {fileID: 5685025560551235124}
   go_sign: {fileID: 5691775331170606657}
-  stop_sign: {fileID: 7160007961731732396}
+  stop_sign: {fileID: 8232588122361164573}
 --- !u!1 &8933132587700088266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,6 +2336,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3818352743563135189, guid: 8b536ecfd323a4947afbb8b661c1b370,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4471275838025373863, guid: 8b536ecfd323a4947afbb8b661c1b370,
         type: 3}
       propertyPath: m_Name
@@ -2342,15 +2348,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b536ecfd323a4947afbb8b661c1b370, type: 3}
---- !u!1 &7160007961731732396 stripped
+--- !u!1 &8232588122361164573 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4471275838025373863, guid: 8b536ecfd323a4947afbb8b661c1b370,
+  m_CorrespondingSourceObject: {fileID: 3391311289792395286, guid: 8b536ecfd323a4947afbb8b661c1b370,
     type: 3}
   m_PrefabInstance: {fileID: 6723976365532973835}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6470645505167294274 stripped
+--- !u!4 &7614988250948502494 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 332146162466190409, guid: 8b536ecfd323a4947afbb8b661c1b370,
+  m_CorrespondingSourceObject: {fileID: 3818352743563135189, guid: 8b536ecfd323a4947afbb8b661c1b370,
     type: 3}
   m_PrefabInstance: {fileID: 6723976365532973835}
   m_PrefabAsset: {fileID: 0}

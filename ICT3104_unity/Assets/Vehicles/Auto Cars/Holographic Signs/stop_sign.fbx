@@ -10,11 +10,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2021
 		Month: 11
-		Day: 21
-		Hour: 13
-		Minute: 18
-		Second: 6
-		Millisecond: 850
+		Day: 27
+		Hour: 16
+		Minute: 15
+		Second: 18
+		Millisecond: 160
 	}
 	Creator: "FBX SDK/FBX Plugins version 2016.1"
 	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
@@ -30,8 +30,8 @@ FBXHeaderExtension:  {
 			Comment: ""
 		}
 		Properties70:  {
-			P: "DocumentUrl", "KString", "Url", "", "C:\Users\tsfen\AppData\Local\Temp\EB5C.tmp.fbx"
-			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\tsfen\AppData\Local\Temp\EB5C.tmp.fbx"
+			P: "DocumentUrl", "KString", "Url", "", "C:\Users\tsfen\AppData\Local\Temp\1D48.tmp.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\tsfen\AppData\Local\Temp\1D48.tmp.fbx"
 			P: "Original", "Compound", "", ""
 			P: "Original|ApplicationVendor", "KString", "", "", ""
 			P: "Original|ApplicationName", "KString", "", "", ""
@@ -77,7 +77,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2802903301296, "", "Scene" {
+	Document: 1955672508544, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -272,7 +272,7 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Geometry: 2802904825616, "Geometry::", "Mesh" {
+	Geometry: 1955674860176, "Geometry::", "Mesh" {
 		Vertices: *24 {
 			a: 1,1,-0,0,0,-0,1,0,-0,0,1,-0,1,0,-0,0,0,-0,1,1,-0,0,1,-0
 		} 
@@ -298,7 +298,7 @@ Objects:  {
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "IndexToDirect"
 			UV: *16 {
-				a: 0.834444991281673,0.831800879134768,0.167778324615007,0.165134212468101,0.834444991281673,0.165134212468101,0.167778324615007,0.831800879134768,0.831291454434716,0.166495210757839,0.16462478571162,0.166495293805553,0.831291454415057,0.8331619615762,0.164624785614277,0.833162377156903
+				a: 1.97808385300962,2.97298762215181,1.02792320463052,2.02282846297388,1.97808310059829,2.02282846976598,1.02792395704325,2.97298831901255,1.98871559654646,1.02673408129157,1.02760177857122,1.02673408653548,1.98871609289171,1.98784790493451,1.02760227491707,1.98784837971065
 			} 
 			UVIndex: *12 {
 				a: 0,1,2,1,0,3,4,5,6,7,6,5
@@ -333,7 +333,7 @@ Objects:  {
 			}
 		}
 	}
-	Model: 2802905577648, "Model::Model", "Null" {
+	Model: 1955673748432, "Model::Model", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
@@ -341,7 +341,7 @@ Objects:  {
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2802905575648, "Model::Mesh1", "Mesh" {
+	Model: 1955680248048, "Model::Mesh1", "Mesh" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
@@ -350,41 +350,41 @@ Objects:  {
 		Shading: T
 		Culling: "CullingOff"
 	}
-	Material: 2802904384592, "Material::Color_M06", "" {
+	Material: 1955674263200, "Material::Color_M09", "" {
 		Version: 102
 		ShadingModel: "phong"
 		MultiLayer: 0
 		Properties70:  {
 			P: "AmbientColor", "Color", "", "A",0,0,0
-			P: "DiffuseColor", "Color", "", "A",0.141176470588235,0.141176470588235,0.141176470588235
+			P: "DiffuseColor", "Color", "", "A",0.301960784313725,0.301960784313725,0.301960784313725
 			P: "TransparentColor", "Color", "", "A",1,1,1
 			P: "SpecularColor", "Color", "", "A",0.33,0.33,0.33
 			P: "ReflectionFactor", "Number", "", "A",0
 			P: "Emissive", "Vector3D", "Vector", "",0,0,0
 			P: "Ambient", "Vector3D", "Vector", "",0,0,0
-			P: "Diffuse", "Vector3D", "Vector", "",0.141176470588235,0.141176470588235,0.141176470588235
+			P: "Diffuse", "Vector3D", "Vector", "",0.301960784313725,0.301960784313725,0.301960784313725
 			P: "Specular", "Vector3D", "Vector", "",0.33,0.33,0.33
 			P: "Shininess", "double", "Number", "",20
 			P: "Opacity", "double", "Number", "",1
 			P: "Reflectivity", "double", "Number", "",0
 		}
 	}
-	Video: 2802553607136, "Video::Color_M06_texture", "Clip" {
+	Video: 1955673506688, "Video::Color_M09_texture", "Clip" {
 		Type: "Clip"
 		Properties70:  {
-			P: "Path", "KString", "XRefUrl", "", "stop_sign/Color_M06.jpg"
+			P: "Path", "KString", "XRefUrl", "", "stop_sign/Color_M09.jpg"
 		}
 		UseMipMap: 0
-		Filename: "stop_sign/Color_M06.jpg"
-		RelativeFilename: "..\..\..\OneDrive\Documents\stop_sign\Color_M06.jpg"
+		Filename: "stop_sign/Color_M09.jpg"
+		RelativeFilename: "..\..\..\OneDrive\Documents\stop_sign\Color_M09.jpg"
 	}
-	Texture: 2802904385552, "Texture::Color_M06_texture", "" {
+	Texture: 1955674263680, "Texture::Color_M09_texture", "" {
 		Type: "TextureVideoClip"
 		Version: 202
-		TextureName: "Texture::Color_M06_texture"
-		Media: "Video::Color_M06_texture"
-		FileName: "stop_sign/Color_M06.jpg"
-		RelativeFilename: "..\..\..\OneDrive\Documents\stop_sign\Color_M06.jpg"
+		TextureName: "Texture::Color_M09_texture"
+		Media: "Video::Color_M09_texture"
+		FileName: "stop_sign/Color_M09.jpg"
+		RelativeFilename: "..\..\..\OneDrive\Documents\stop_sign\Color_M09.jpg"
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
@@ -398,25 +398,25 @@ Objects:  {
 Connections:  {
 	
 	;Model::Model, Model::RootNode
-	C: "OO",2802905577648,0
+	C: "OO",1955673748432,0
 	
 	;Model::Mesh1, Model::Model
-	C: "OO",2802905575648,2802905577648
+	C: "OO",1955680248048,1955673748432
 	
 	;Geometry::, Model::Mesh1
-	C: "OO",2802904825616,2802905575648
+	C: "OO",1955674860176,1955680248048
 	
-	;Material::Color_M06, Model::Mesh1
-	C: "OO",2802904384592,2802905575648
+	;Material::Color_M09, Model::Mesh1
+	C: "OO",1955674263200,1955680248048
 	
-	;Texture::Color_M06_texture, Model::Mesh1
-	C: "OO",2802904385552,2802905575648
+	;Texture::Color_M09_texture, Model::Mesh1
+	C: "OO",1955674263680,1955680248048
 	
-	;Video::Color_M06_texture, Texture::Color_M06_texture
-	C: "OO",2802553607136,2802904385552
+	;Video::Color_M09_texture, Texture::Color_M09_texture
+	C: "OO",1955673506688,1955674263680
 	
-	;Texture::Color_M06_texture, Material::Color_M06
-	C: "OP",2802904385552,2802904384592, "DiffuseColor"
+	;Texture::Color_M09_texture, Material::Color_M09
+	C: "OP",1955674263680,1955674263200, "DiffuseColor"
 }
 ;Takes section
 ;----------------------------------------------------
