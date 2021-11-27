@@ -23,7 +23,7 @@ public class LoadSceneController : MonoBehaviour
 	//PlayerPrefs.SetString ("log",PlayerPrefs.GetString("log")+"\n"+"Try");
 		
 		string[] cars = {PlayerPrefs.GetString("log")};
-		File.WriteAllLines("Assets/Resources/test.csv",cars );
+		File.WriteAllLines("./test.csv",cars );
         var pressedKey = Input.inputString;
 
         switch (pressedKey)

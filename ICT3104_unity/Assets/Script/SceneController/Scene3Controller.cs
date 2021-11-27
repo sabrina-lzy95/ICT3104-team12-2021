@@ -17,7 +17,9 @@ public class Scene3Controller : MonoBehaviour
     public GameObject RainPrefab;
 
     List<GameObject> prefabList = new List<GameObject>();
-    public GameObject normalCar;
+    List<GameObject> prefabList2 = new List<GameObject>();
+    public GameObject normalCar1;
+    public GameObject normalCar2;
     public GameObject autocar1;
     public GameObject autocar2;
     public GameObject autocar3;
@@ -31,10 +33,11 @@ public class Scene3Controller : MonoBehaviour
         prefabList.Add(autocar1);
         prefabList.Add(autocar2);
         prefabList.Add(autocar3);
-        
+        prefabList2.Add(normalCar1);
+        prefabList2.Add(normalCar2);
 
-		localDate = DateTime.Now;
-		string path = "Assets/Resources/Log.csv";
+        localDate = DateTime.Now;
+		string path = "./Log.csv";
 		writer = new StreamWriter(path, true);    
 		writer.WriteLine(localDate.ToString() + ","+ "Loaded Scene 3" );
 		StartCoroutine("LogUserLocation");
@@ -97,7 +100,8 @@ public class Scene3Controller : MonoBehaviour
         if (carType == "Normal")
         {
 			writer.WriteLine(localDate.ToString() + ",Spawned Normal Car!");
-            targetCar = normalCar;
+            prefabIndex = UnityEngine.Random.Range(0, 3);
+            targetCar = prefabList2[prefabIndex];
         }
         else if (carType == "Auto")
         {
